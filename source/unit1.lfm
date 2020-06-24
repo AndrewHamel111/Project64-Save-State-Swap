@@ -1,0 +1,140 @@
+object Form1: TForm1
+  Left = 1152
+  Height = 242
+  Top = 525
+  Width = 713
+  Caption = 'Project64 Save State Swap'
+  ClientHeight = 242
+  ClientWidth = 713
+  OnCreate = FormCreate
+  LCLVersion = '2.0.8.0'
+  object Bevel2: TBevel
+    Left = 536
+    Height = 191
+    Top = 33
+    Width = 162
+    Shape = bsFrame
+  end
+  object Bevel1: TBevel
+    Left = 16
+    Height = 192
+    Top = 32
+    Width = 504
+    Shape = bsFrame
+  end
+  object StateComboBox: TComboBox
+    Left = 544
+    Height = 23
+    Top = 41
+    Width = 144
+    ItemHeight = 15
+    OnChange = StateComboBoxChange
+    TabOrder = 0
+    Text = 'Select State..'
+  end
+  object SourceDirectoryEdit: TDirectoryEdit
+    Left = 24
+    Height = 23
+    Top = 56
+    Width = 488
+    DialogTitle = 'Practice States Directory..'
+    ShowHidden = False
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    Left = 24
+    Height = 15
+    Top = 40
+    Width = 104
+    Caption = 'Save State Directory'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 24
+    Height = 15
+    Top = 88
+    Width = 112
+    Caption = 'Project64 Save Folder'
+    ParentColor = False
+  end
+  object PJ64DirectoryEdit: TDirectoryEdit
+    Left = 24
+    Height = 23
+    Top = 104
+    Width = 488
+    Directory = ''
+    DialogTitle = 'Practice States Directory..'
+    ShowHidden = False
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 2
+    Text = ''
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 15
+    Top = 16
+    Width = 36
+    Caption = 'Config'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 536
+    Height = 15
+    Top = 17
+    Width = 57
+    Caption = 'State Swap'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 544
+    Height = 30
+    Top = 187
+    Width = 106
+    Caption = 'v0.1'#13#10'Andrew Hamel 2020'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 24
+    Height = 15
+    Top = 136
+    Width = 60
+    Caption = 'Rom Name'
+    ParentColor = False
+  end
+  object RomNameEdit: TEdit
+    Left = 24
+    Height = 23
+    Hint = 'The prefix for the save states in PJ64. Check README if you don''t know how to find this.'
+    Top = 152
+    Width = 488
+    TabOrder = 3
+    Text = 'Super Mario 64 (U)'
+  end
+  object SaveINIButton: TButton
+    Left = 456
+    Height = 25
+    Hint = 'Saves the current configuration to an .ini file loaded on start.'
+    Top = 192
+    Width = 56
+    Caption = 'Save'
+    Color = clMenu
+    OnClick = SaveINIButtonClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+  end
+  object UpdateStateListButton: TButton
+    Left = 368
+    Height = 25
+    Top = 192
+    Width = 75
+    Caption = 'Load States'
+    OnClick = UpdateStateListButtonClick
+    TabOrder = 5
+  end
+end
