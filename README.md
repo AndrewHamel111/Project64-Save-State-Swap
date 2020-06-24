@@ -64,6 +64,6 @@ The Project64 Save State Swap icon is provided by http://icons8.com under the [L
 
 Lazarus v.2.0.8 can be found [here](https://www.lazarus-ide.org/index.php).
 
-Shout out to [nduronio](http://www.twitch,tv/nduronio) for running SM64 70 Star and 16 Star with me.
+Shout out to [nduronio](http://www.twitch.tv/nduronio) for running SM64 70 Star and 16 Star with me.
 
 _Shoutouts to Simpleflips_
