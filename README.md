@@ -10,20 +10,20 @@ In it's current state, it's really only useful to those of you that already have
 Screenshots
 -----------
 
-![Image](img\img1.png "Main Form")
-![Image](img\img2.png "Succesful Load")
+![Image](img/img1.png "Main Form")
+![Image](img/img2.png "Succesful Load")
 
 ---
 
 Use it to travel to Bob-Omb Battlefield!
 
-![Image](img\img3.png "Bob-Omb Battlefield")
+![Image](img/img3.png "Bob-Omb Battlefield")
 
 ---
 
 Or Cool, Cool Mountain!
 
-![Image](img\img4.png "Cool, Cool Mountain")
+![Image](img/img4.png "Cool, Cool Mountain")
 
 ---
 
@@ -34,15 +34,15 @@ Configuration can take a minute or two on your first startup only because you ne
 
 The first directory should point to the folder containing your practice roms, preferably with indicative names to their purpose since this is the only reference you'll have when viewing them in the swapper.
 
-![Image](img\img5.png)
+![Image](img/img5.png)
 
 The second directory points to the Save folder in PJ64's installation directory, which by default should be in your C:\Program Files(x86). Of course, this is easily changed if you've installed it elsewhere.
 
-![Image](img\img6.png)
+![Image](img/img6.png)
 
 The third field is actually the Rom Name, which is easily found by examining the save state that Project64 creates for your current ROM. If you have Project64 running, just create a save state in the default slot (~) and go to the \Project64\Save folder to see it's name. The "Rom Name" field will be everything except for the '.pj.zip'. My SM64 rom is referred to as 'Super Mario 64 (U)'.
 
-![Image](img\img7.png)
+![Image](img/img7.png)
 
 Once you think you've got everything right hit **Load States** and a popup will show you the directory you entered and how many states were found. This form will consider ANY '.zip' to be a save state, so make sure you only have valid Project64 save states inside of the chosen directory. All the '.zip' files found will now be listed in State Swap and you can simply choose a state, tab back into Project64 and press your Load State key (default F7 on Windows) to load the selected state.
 
