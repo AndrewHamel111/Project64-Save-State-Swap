@@ -1,10 +1,10 @@
 object Form1: TForm1
-  Left = 1152
-  Height = 242
-  Top = 525
+  Left = 1136
+  Height = 243
+  Top = 498
   Width = 713
   Caption = 'Project64 Save State Swap'
-  ClientHeight = 242
+  ClientHeight = 243
   ClientWidth = 713
   OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
@@ -65,14 +65,12 @@ object Form1: TForm1
     Height = 23
     Top = 104
     Width = 488
-    Directory = ''
     DialogTitle = 'Practice States Directory..'
     ShowHidden = False
     ButtonWidth = 23
     NumGlyphs = 1
     MaxLength = 0
     TabOrder = 2
-    Text = ''
   end
   object Label3: TLabel
     Left = 16
@@ -95,25 +93,16 @@ object Form1: TForm1
     Height = 30
     Top = 187
     Width = 106
-    Caption = 'v0.1'#13#10'Andrew Hamel 2020'
+    Caption = 'v0.2'#13#10'Andrew Hamel 2020'
     ParentColor = False
   end
   object Label6: TLabel
     Left = 24
     Height = 15
     Top = 136
-    Width = 60
-    Caption = 'Rom Name'
+    Width = 89
+    Caption = 'Destination State'
     ParentColor = False
-  end
-  object RomNameEdit: TEdit
-    Left = 24
-    Height = 23
-    Hint = 'The prefix for the save states in PJ64. Check README if you don''t know how to find this.'
-    Top = 152
-    Width = 488
-    TabOrder = 3
-    Text = 'Super Mario 64 (U)'
   end
   object SaveINIButton: TButton
     Left = 456
@@ -126,7 +115,7 @@ object Form1: TForm1
     OnClick = SaveINIButtonClick
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 4
+    TabOrder = 3
   end
   object UpdateStateListButton: TButton
     Left = 368
@@ -135,6 +124,16 @@ object Form1: TForm1
     Width = 75
     Caption = 'Load States'
     OnClick = UpdateStateListButtonClick
+    TabOrder = 4
+  end
+  object DestinationComboBox: TComboBox
+    Left = 24
+    Height = 23
+    Top = 152
+    Width = 488
+    ItemHeight = 15
+    OnChange = DestinationComboBoxChange
     TabOrder = 5
+    Text = 'Select State..'
   end
 end

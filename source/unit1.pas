@@ -27,18 +27,19 @@ type
   TForm1 = class(TForm)
     Bevel1: TBevel;
     Bevel2: TBevel;
+    DestinationComboBox: TComboBox;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
-    RomNameEdit: TEdit;
     SaveINIButton: TButton;
     SourceDirectoryEdit: TDirectoryEdit;
     PJ64DirectoryEdit: TDirectoryEdit;
     StateComboBox: TComboBox;
     UpdateStateListButton: TButton;
+    procedure DestinationComboBoxChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure SaveINIButtonClick(Sender: TObject);
     procedure StateComboBoxChange(Sender: TObject);
@@ -50,6 +51,7 @@ type
     DefaultSaveStatePath: string;
 
     LoadedStates: array of State;        // State contains the displayname as State.StateName and the path for CopyFile as State.AbsolutePath
+    PotentialDestinations: array of string;
   public
 
   end;
@@ -59,6 +61,13 @@ var
 
 
 implementation
+
+// s.c.6
+
+function GetDestFileFromPath(const path:string): string;
+begin
+   GetDestFileFromPath := RightStr(path, Length(path) - LastDelimiter('\',path));
+end;
 
 { State }
 
@@ -104,13 +113,19 @@ begin
          PJ64DirectoryEdit.Directory   := DestPath;
          RomNameEdit.Text              := RomName;
 
-       except               // set some default paths
+       except               // this message will almost certainly never appear. TOO BAD!!
          ShowMessage('stateSwapData.ini does not exist or does not contain valid data. Please manually select the directories and Rom Name.');
        end;
-     finally              // update the dest for CopyFile
+     finally              // Memory leaks aren't real don't lie to me.
        INI.Free;
        DefaultSaveStatePath := Concat(DestPath, '\', RomName, '.pj.zip');
      end;
+end;
+
+procedure TForm1.DestinationComboBoxChange(Sender: TObject);
+begin
+  // select the correct DefaultSaveStatePath based on the index chosen
+     DefaultSaveStatePath := PotentialDestinations[DestinationComboBox.ItemIndex];
 end;
 
 // s.c.5
@@ -128,10 +143,10 @@ begin
        INI.WriteString('Directories', 'SourceDir', SourcePath);
        INI.WriteString('Directories', 'PJ64SaveDir', DestPath);
        INI.WriteString('RomSettings', 'RomName', RomName);
-     except               // set some default paths
+     except               // this message will probably never appear. TOO BAD!!
        ShowMessage('stateSwapData.ini could not be written to. Your configuration will not be saved at this time.');
      end;
-   finally              // update the dest for CopyFile
+   finally              // This will NOT cause a memory leak, that's why it's here.
      INI.Free;
    end;
 end;
@@ -146,6 +161,7 @@ end;
 procedure TForm1.UpdateStateListButtonClick(Sender: TObject);
   var
     fileNames: TStringList;
+    potentialStates: TStringList;
     index: integer;
 begin
      StateComboBox.Items.Clear();
@@ -157,9 +173,15 @@ begin
      DefaultSaveStatePath := DestPath + '\' + RomName + '.pj.zip';      // consider having the user select the default save state file and use that path
 
      fileNames := TStringList.Create();
-     FindAllFiles(fileNames, SourceDirectoryEdit.Directory, '*.zip', false);
+     FindAllFiles(fileNames, SourcePath, '*.zip', false);
      SetLength(LoadedStates, fileNames.Count);
-     ShowMessage('Directory searched: '+SourceDirectoryEdit.Directory+LineEnding+Format('Files found: %d',[fileNames.Count]));
+     ShowMessage('Directory searched: '+SourcePath+LineEnding+Format('Files found: %d',[fileNames.Count]));
+
+     potentialStates := TStringList.Create();
+     FindAllFiles(potentialStates, DestPath, '*.zip', false);
+     SetLength(PotentialDestinations, potentialStates.Count);
+     ShowMessage(Format('potential states in Save: %d',[potentialStates.Count]));
+     ShowMessage('Example state: '+ GetDestFileFromPath(potentialStates[0]));
 
      for index := 0 to fileNames.Count do
      begin
@@ -167,8 +189,14 @@ begin
           LoadedStates[index] := State.Create(fileNames[index]);
           StateComboBox.Items.Add(LoadedStates[index].StateName);
      end;
-end;
 
+     for index := 0 to potentialStates.Count do
+     begin
+          if index = potentialStates.Count then break;
+          PotentialDestinations[index] := potentialStates[index];
+          DestinationComboBox.Items.Add(GetDestFileFromPath(PotentialDestinations[index]));
+     end;
+end;
 
 {$R *.lfm}
 
