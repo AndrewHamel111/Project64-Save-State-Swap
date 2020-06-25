@@ -1,11 +1,12 @@
 object Form1: TForm1
-  Left = 1136
-  Height = 243
-  Top = 498
+  Left = 494
+  Height = 261
+  Top = 16
   Width = 713
   Caption = 'Project64 Save State Swap'
-  ClientHeight = 243
+  ClientHeight = 241
   ClientWidth = 713
+  Menu = MainMenu1
   OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
   object Bevel2: TBevel
@@ -31,18 +32,6 @@ object Form1: TForm1
     OnChange = StateComboBoxChange
     TabOrder = 0
     Text = 'Select State..'
-  end
-  object SourceDirectoryEdit: TDirectoryEdit
-    Left = 24
-    Height = 23
-    Top = 56
-    Width = 488
-    DialogTitle = 'Practice States Directory..'
-    ShowHidden = False
-    ButtonWidth = 23
-    NumGlyphs = 1
-    MaxLength = 0
-    TabOrder = 1
   end
   object Label1: TLabel
     Left = 24
@@ -70,12 +59,12 @@ object Form1: TForm1
     ButtonWidth = 23
     NumGlyphs = 1
     MaxLength = 0
-    TabOrder = 2
+    TabOrder = 1
   end
   object Label3: TLabel
     Left = 16
     Height = 15
-    Top = 16
+    Top = 17
     Width = 36
     Caption = 'Config'
     ParentColor = False
@@ -93,7 +82,7 @@ object Form1: TForm1
     Height = 30
     Top = 187
     Width = 106
-    Caption = 'v0.2'#13#10'Andrew Hamel 2020'
+    Caption = 'v0.3'#13#10'Andrew Hamel 2020'
     ParentColor = False
   end
   object Label6: TLabel
@@ -115,7 +104,7 @@ object Form1: TForm1
     OnClick = SaveINIButtonClick
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 3
+    TabOrder = 2
   end
   object UpdateStateListButton: TButton
     Left = 368
@@ -124,7 +113,7 @@ object Form1: TForm1
     Width = 75
     Caption = 'Load States'
     OnClick = UpdateStateListButtonClick
-    TabOrder = 4
+    TabOrder = 3
   end
   object DestinationComboBox: TComboBox
     Left = 24
@@ -133,7 +122,53 @@ object Form1: TForm1
     Width = 488
     ItemHeight = 15
     OnChange = DestinationComboBoxChange
-    TabOrder = 5
+    TabOrder = 4
     Text = 'Select State..'
+  end
+  object SourceDirectoryComboBox: TComboBox
+    Left = 24
+    Height = 23
+    Top = 56
+    Width = 488
+    ItemHeight = 15
+    OnChange = SourceDirectoryComboBoxChange
+    OnEditingDone = SourceDirectoryComboBoxEditingDone
+    TabOrder = 5
+  end
+  object MainMenu1: TMainMenu
+    left = 24
+    top = 184
+    object MenuItem1: TMenuItem
+      Caption = 'File'
+      object MenuItem5: TMenuItem
+        Caption = 'Load States'
+        OnClick = MenuItem5Click
+      end
+      object MenuItem6: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem3: TMenuItem
+        Caption = 'Load from .ini'
+        OnClick = MenuItem3Click
+      end
+      object MenuItem4: TMenuItem
+        Caption = 'Save to .ini'
+        OnClick = SaveINIButtonClick
+      end
+      object MenuItem9: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem7: TMenuItem
+        Caption = 'Exit'
+        OnClick = MenuItem7Click
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Directories'
+      object MenuItem8: TMenuItem
+        Caption = 'Edit Directories..'
+        OnClick = MenuItem8Click
+      end
+    end
   end
 end

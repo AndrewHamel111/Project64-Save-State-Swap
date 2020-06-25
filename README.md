@@ -11,19 +11,6 @@ Screenshots
 -----------
 
 ![Image](img/img1.png "Main Form")
-![Image](img/img2.png "Succesful Load")
-
----
-
-Use it to travel to Bob-Omb Battlefield!
-
-![Image](img/img3.png "Bob-Omb Battlefield")
-
----
-
-Or Cool, Cool Mountain!
-
-![Image](img/img4.png "Cool, Cool Mountain")
 
 ---
 
@@ -32,30 +19,36 @@ Configuration
 -------------
 Configuration can take a minute or two on your first startup only because you need to hunt down your directories, but don't worry! You won't have to do this every time. Once you've locked in your configuration, you can just hit Save and I will store the current configuration in an .ini in my directory. Also, if you understand the .ini format you can change the directories from there before starting the program again, although i'd recommend you stick to the directory edit inside of the form.
 
-The first directory should point to the folder containing your practice roms, preferably with indicative names to their purpose since this is the only reference you'll have when viewing them in the swapper.
+The first field should point to the directory with the save states you'd like to access. If you have multiple folders of save states and want to keep them separate for one purpose or another, this is where you choose the specific folder. You can save up to 5 directories to choose from in this combo box by selecting Directories > Edit Directories.. . A new form will open where you can add your directories, then hit close to return to the main form.
 
-![Image](img/img5.png)
+![Image](img/img11.png)
+
+Here's where you can edit the directories.
+
+![Image](img/img8.png)
+
+Once that's done you can return to the main form and select the correct directory.
+
+![Image](img/img7.png)
 
 The second directory points to the Save folder in PJ64's installation directory, which by default should be in your C:\Program Files(x86). Of course, this is easily changed if you've installed it elsewhere.
 
 ![Image](img/img6.png)
 
-The third field is actually the Rom Name, which is easily found by examining the save state that Project64 creates for your current ROM. If you have Project64 running, just create a save state in the default slot (~) and go to the \Project64\Save folder to see it's name. The "Rom Name" field will be everything except for the '.pj.zip'. My SM64 rom is referred to as 'Super Mario 64 (U)'.
+The third field is a ComboBox populated by all the save states found inside your Save folder. Select the save state corresponding to your ROM and you're good to go.
 
-![Image](img/img7.png)
+![Image](img/img9.png)
 
-Once you think you've got everything right hit **Load States** and a popup will show you the directory you entered and how many states were found. This form will consider ANY '.zip' to be a save state, so make sure you only have valid Project64 save states inside of the chosen directory. All the '.zip' files found will now be listed in State Swap and you can simply choose a state, tab back into Project64 and press your Load State key (default F7 on Windows) to load the selected state.
+Once you think you've got everything right hit **Load States** and take a peek inside the State Swap box. This form will consider ANY '.zip' to be a save state, so make sure you only have valid Project64 save states inside of the chosen directory. Now you can simply choose a state, tab back into Project64 and press your Load State key (default F7 on Windows) to load the selected state.
 
-If your configuration works, hit **Save** and feel freed from the burden of configuration! I recommend storing all your states for multiple games in dedicated directories sharing a parent directory, that way when you switch games you can easily Select Directory and navigate quickly to the correct game.
+If your configuration works, hit **Save** and feel freed from the burden of configuration!
 
 Please note that the .exe will automatically create the .ini storing your configuration settings in the same directory as the .exe.
 
 
 Limitations (for the nerds)
 ---------------------------
-SaveStateSwap has no protection against invalid save states or save states for the wrong game. This is very much an 'honor system' based approach but the good news is that it's _very_ unlikely it will damage your ROM or your installation of Project64.
-
-You need to manually change the Rom Name each time you switch game, and getting this wrong can worst case put an SM64 state in an OOT costume which would undoubtedly confuse Project64, and a less severe case simply copy the state under an invalid name and Project64 would never notice.
+PJ64SaveStateSwap has no protection against invalid save states or save states for the wrong game. This is very much an 'honor system' based approach but the good news is that it's _very_ unlikely it will damage your ROM or your installation of Project64.
 
 Credits and License
 -------------------
